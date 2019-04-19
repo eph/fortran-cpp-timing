@@ -55,8 +55,8 @@ contains
     integer :: nobs, T, ns, npara, neps
     
     name = 'ss'
-    datafile = '/home/eherbst/Dropbox/code/fortress/test/test_data.txt'
-    priorfile = '/home/eherbst/Dropbox/code/fortress/test/test_prior_model.txt'
+    datafile = 'data.txt'
+    priorfile = ''
 
     nobs = 1
     T = 80

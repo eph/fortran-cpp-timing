@@ -32,5 +32,5 @@ JSON=-I$(INC)/json-fortran -L$(LIB)/json-fortran -ljsonfortran
 
 check_timing_fortran_fortress: kalman_filter.hpp simple_state_space_fortress.f90 check_timing_fortran.f90
 	$(CC) -O3 -I. $(CPP_HEADER_FILES) -std=c++14 -c kalman_filter_wrapper.cpp
-	$(FC) -O3 -Wl,--start-group $(FORTRESS) $(JSON) $(FLAP) $(FRUIT) -Wl,--end-group kalman_filter_wrapper.o simple_state_space_fortress.f90  check_timing_fortran.f90 -I. -lstdc++  -o check_timing_fortran_fortress -lopenblas
+	mpif90 -O3 kalman_filter_wrapper.o simple_state_space_fortress.f90  check_timing_fortran.f90 -Wl,--start-group $(FORTRESS) $(JSON) $(FLAP) $(FRUIT) -Wl,--end-group  -I. -lstdc++  -o check_timing_fortran_fortress -lopenblas
 
